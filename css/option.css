@@ -1,0 +1,818 @@
+ body {
+   font-family: "Quicksand", sans-serif;
+   font-optical-sizing: auto;
+   font-style: normal;
+ }
+
+ /* Flower corners */
+.flower-corner {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url('img/flower.png');
+  background-size: cover;
+  opacity: 0;
+  animation: flowerFadeUp 2s ease-in-out forwards;
+}
+
+.top-left {
+  top: 20px;
+  left: 20px;
+}
+
+.top-right {
+  top: 20px;
+  right: 20px;
+}
+
+.bottom-left {
+  bottom: 20px;
+  left: 20px;
+}
+
+.bottom-right {
+  bottom: 20px;
+  right: 20px;
+}
+
+@keyframes flowerFadeUp {
+  0% {
+      transform: translateY(20px);
+      opacity: 0;
+  }
+  100% {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+
+ .arabic {
+   font-family: "Noto Naskh Arabic", serif;
+ }
+
+ .couple img {
+   width: 40%;
+   margin: auto;
+ }
+
+ .navbar-green .navbar-brand {
+   color: #3f5835;
+ }
+
+ .navbar-green .navbar-brand:hover,
+ .navbar-green .navbar-brand:focus {
+   color: #3f5835;
+   font-weight: 600;
+ }
+
+ .navbar-green .navbar-nav .nav-link {
+   color: #3f5835;
+ }
+
+
+ .navbar-green .navbar-nav .nav-link.disabled {
+   color: #3f5835;
+ }
+
+ .navbar-green .navbar-nav .show>.nav-link,
+ .navbar-green .navbar-nav .active>.nav-link,
+ .navbar-green .navbar-nav .nav-link.show,
+ .navbar-green .navbar-nav .nav-link.active {
+  color: #fff;
+  font-weight: 600;
+  background-color: #3f5835d1;
+ }
+
+ .navbar-green .navbar-nav .nav-link .fonts {
+   margin-top: 5px;
+   font-size: 15px;
+ }
+
+ .navbar-green .navbar-toggler {
+   color: rgba(0, 0, 0, 0.5);
+ }
+
+ .navbar-green .navbar-toggler-icon {
+   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.5%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+ }
+
+ .navbar-green .navbar-text {
+   color: rgba(0, 0, 0, 0.5);
+ }
+
+ .navbar-green .navbar-text a {
+   color: rgba(0, 0, 0, 0.9);
+ }
+
+ .navbar-green .navbar-text a:hover,
+ .navbar-green .navbar-text a:focus {
+   color: rgba(229, 255, 157, 0.9);
+   font-weight: 600;
+ }
+
+ .bg-green {
+   background: #fff !important;
+ }
+
+ a.bg-green:hover,
+ a.bg-green:focus,
+ button.bg-green:hover,
+ button.bg-green:focus {
+   background: #f5f1aa !important;
+ }
+
+ .bg-green-soft {
+   background-color: #708839b7 !important;
+ }
+
+ .hijau-overlay {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(85, 150, 0, 0.527);
+   /* Warna hijau dan transparansi overlay */
+ }
+
+ .bg-story {
+   background-color: #51623e;
+   background-size: cover;
+ }
+
+ .bg-event {
+   background: linear-gradient(#51623e, #51623eb0, #51623e), url(../img/background.jpg), no-repeat center;
+   background-size: cover;
+ }
+
+ .text-green {
+   color: rgba(76, 228, 46, 0.5) !important;
+ }
+
+ .bg-footer {
+   background: linear-gradient(#51623e, #51623eb0, #51623e), url(../img/footer.jpg), no-repeat center;
+   background-size: cover;
+   height: 90vh;
+ }
+
+ .bg-main {
+   background-color: #51623e;
+   /* background-color: #3f5835; */
+   object-fit: cover;
+ }
+
+ .rounded-20 {
+   border-radius: 20px;
+ }
+
+ /* Start credit card design */
+
+ .card-container {
+   width: 100%;
+   height: 100%;
+   background-image: linear-gradient(#29c257, #1c7a3b, #135f35);
+   color: white;
+   border-radius: 8px;
+   padding: 20px;
+   box-sizing: border-box;
+ }
+
+ .card-container1 {
+   width: 100%;
+   height: 100%;
+   background-image: linear-gradient(#297dc2, #1c427a, #13435f);
+   color: white;
+   border-radius: 8px;
+   padding: 20px;
+   box-sizing: border-box;
+ }
+
+ .card-name {
+   font-weight: 700;
+   text-align: right;
+   font-size: 20px;
+ }
+
+ .chip {
+   margin-top: 10px;
+   width: 55px;
+   height: 50px;
+ }
+
+ .chip img {
+   width: 55px;
+   height: 50px;
+ }
+
+ .card-no {
+   letter-spacing: .456rem;
+   margin-top: 10px;
+   font-family: 'DS-Digital', sans-serif;
+   font-weight: 300;
+   font-size: 37px;
+ }
+
+ .expire-data {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+ }
+
+ .expire-date {
+   margin-top: 6px;
+ }
+
+ .date-label {
+   font-size: 13px;
+ }
+
+ .card-type {
+   margin-top: 4px;
+   width: 100px;
+   height: 70px;
+ }
+
+ .card-type img {
+   width: 100px;
+   height: 70px;
+ }
+
+ .date {
+   font-size: 22px;
+ }
+
+ .account-name {
+   font-size: 23px;
+ }
+
+ .clipboard-button {
+   font-size: 16px;
+   background: linear-gradient(#29c236, #1f7a1c, #135f19);
+   color: white;
+   border: none;
+   border-radius: 50px;
+   cursor: pointer;
+   outline: none;
+   position: relative;
+   overflow: hidden;
+   transition: background-color 0.3s;
+ }
+
+ .clipboard-button1 {
+   font-size: 16px;
+   background: linear-gradient(#297dc2, #1c427a, #13435f);
+   color: white;
+   border: none;
+   border-radius: 50px;
+   cursor: pointer;
+   outline: none;
+   position: relative;
+   overflow: hidden;
+   transition: background-color 0.3s;
+ }
+
+ .ripple {
+   position: absolute;
+   background: rgba(255, 255, 255, 0.7);
+   border-radius: 50%;
+   transform: scale(0);
+   animation: rippleEffect 0.7s linear;
+ }
+
+ .open .open-invitation {
+   color: #3f5835;
+   background-color: white;
+ }
+
+ .open .open-invitation:hover {
+   background-color: #3f5835;
+   color: white;
+ }
+
+ @keyframes rippleEffect {
+   to {
+     transform: scale(4);
+     opacity: 0;
+   }
+ }
+
+ .notification {
+   position: fixed;
+   bottom: 20px;
+   left: 50%;
+   transform: translateX(-50%);
+   background-color: #4CAF50;
+   color: white;
+   padding: 10px 20px;
+   border-radius: 5px;
+   display: none;
+ }
+
+ @media (max-width: 576px) {
+  .slot {
+    position: fixed; /* Bisa juga gunakan 'fixed' jika objek harus tetap di viewport */
+    top: 23%; /* Tempatkan objek di 50% dari atas container */
+    bottom: 12%;
+    left: 50%; /* Tempatkan objek di 50% dari kiri container */
+    width: 345px; /* Lebar objek tetap */
+    transform: translate(-50%, -50%); /* Pindahkan objek agar pusatnya berada di tengah */
+  
+  }
+ }
+
+ @media (max-width: 576px) {
+
+   .love {
+     display: none;
+   }
+
+   .love i {
+     display: none;
+   }
+
+   html {
+     font-size: 50%;
+   }
+
+   .simply-countdown>.simply-section {
+     width: 40px;
+     height: 40px;
+     padding: 5px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     float: left;
+     margin: 3px;
+     background: #f5f1aa;
+     border-radius: 50%;
+     box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .24)
+   }
+
+   .simply-countdown>.simply-section .simply-amount,
+   .simply-countdown>.simply-section .simply-word {
+     font-size: 0.2rem;
+     display: block;
+     text-align: center;
+   }
+
+   .simply-countdown>.simply-section .simply-amount {
+     display: block;
+     text-align: center;
+     font-size: 1rem;
+     font-weight: 800;
+   }
+
+
+   .nav-link {
+     display: block;
+     padding: 0.6rem 1.5rem;
+   }
+
+   .card-name {
+     font-weight: 700;
+     text-align: right;
+     font-size: 14px;
+   }
+
+   .chip {
+     margin-top: 10px;
+     width: 40px;
+     height: 35px;
+   }
+
+   .chip img {
+     width: 40px;
+     height: 35px;
+   }
+
+   .card-no {
+     letter-spacing: .456rem;
+     margin-top: 10px;
+     font-family: 'DS-Digital', sans-serif;
+     font-weight: 300;
+     font-size: 12px;
+     cursor: pointer;
+   }
+
+   .expire-data {
+     display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+   }
+
+   .expire-date {
+     margin-top: 6px;
+   }
+
+   .date-label {
+     font-size: 8px;
+   }
+
+   .card-type {
+     margin-top: 4px;
+     width: 60px;
+     height: 30px;
+   }
+
+   .card-type img {
+     width: 60px;
+     height: 30px;
+   }
+
+   .date {
+     font-size: 15px;
+   }
+
+   .account-name {
+     font-size: 15px;
+   }
+
+   .clipboard-button {
+     padding: 2px 8px;
+     font-size: 7px;
+     background: linear-gradient(#29c236, #1f7a1c, #135f19);
+     color: white;
+     border: none;
+     border-radius: 50px;
+     cursor: pointer;
+     outline: none;
+     position: relative;
+     overflow: hidden;
+     transition: background-color 0.3s;
+   }
+
+   .clipboard-button1 {
+     padding: 2px 8px;
+     font-size: 7px;
+     background: linear-gradient(#297dc2, #1c427a, #13435f);
+     color: white;
+     border: none;
+     border-radius: 50px;
+     cursor: pointer;
+     outline: none;
+     position: relative;
+     overflow: hidden;
+     transition: background-color 0.3s;
+   }
+
+   .ripple {
+     position: absolute;
+     background: rgba(255, 255, 255, 0.7);
+     border-radius: 50%;
+     transform: scale(0);
+     animation: rippleEffect 0.7s linear;
+   }
+
+
+
+   @keyframes rippleEffect {
+     to {
+       transform: scale(4);
+       opacity: 0;
+     }
+   }
+
+   .notification {
+     position: fixed;
+     bottom: 20px;
+     left: 50%;
+     transform: translateX(-50%);
+     background-color: #4CAF50;
+     color: white;
+     padding: 10px 20px;
+     border-radius: 5px;
+     display: none;
+   }
+
+   .navbar-green .navbar-nav .nav-link .fonts {
+     margin-top: 5px;
+     font-size: 12px;
+   }
+ }
+
+ @media (min-width: 992px) {
+
+   .slot {
+     top: 0;
+     left: 0;
+     transform: translateX(-54px) translateY(-20px);
+     width: 475px;
+   }
+
+   .love {
+     display: flex;
+     border-radius: 50%;
+     position: absolute;
+     left: 92%;
+     transform: translateX(-45%) translateY(100%);
+   }
+
+   .love i {
+     margin: auto;
+     color: #3f5835;
+   }
+
+   html {
+     font-size: 100%;
+   }
+
+   .simply-countdown>.simply-section {
+     padding: 50px;
+   }
+
+   .nav-link {
+     display: block;
+     padding: 0.6rem 1rem;
+   }
+
+   .card-name {
+     font-weight: 700;
+     text-align: right;
+     font-size: 14px;
+   }
+
+   .chip {
+     margin-top: 10px;
+     width: 40px;
+     height: 35px;
+   }
+
+   .chip img {
+     width: 40px;
+     height: 35px;
+   }
+
+   .card-no {
+     letter-spacing: .456rem;
+     margin-top: 10px;
+     font-family: 'DS-Digital', sans-serif;
+     font-weight: 300;
+     font-size: 15px;
+   }
+
+   .expire-data {
+     display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+   }
+
+   .expire-date {
+     margin-top: 6px;
+   }
+
+   .date-label {
+     font-size: 8px;
+   }
+
+   .card-type {
+     margin-top: 4px;
+     width: 60px;
+     height: 30px;
+   }
+
+   .card-type img {
+     width: 60px;
+     height: 30px;
+   }
+
+   .date {
+     font-size: 15px;
+   }
+
+   .account-name {
+     font-size: 15px;
+   }
+
+   .clipboard-button {
+     font-size: 12px;
+     background: linear-gradient(#29c236, #1f7a1c, #135f19);
+     color: white;
+     border: none;
+     border-radius: 50px;
+     cursor: pointer;
+     outline: none;
+     position: relative;
+     overflow: hidden;
+     transition: background-color 0.3s;
+   }
+
+   .clipboard-button1 {
+     font-size: 12px;
+     background: linear-gradient(#297dc2, #1c427a, #13435f);
+     color: white;
+     border: none;
+     border-radius: 50px;
+     cursor: pointer;
+     outline: none;
+     position: relative;
+     overflow: hidden;
+     transition: background-color 0.3s;
+   }
+
+   .ripple {
+     position: absolute;
+     background: rgba(255, 255, 255, 0.7);
+     border-radius: 50%;
+     transform: scale(0);
+     animation: rippleEffect 0.7s linear;
+   }
+
+
+
+   @keyframes rippleEffect {
+     to {
+       transform: scale(4);
+       opacity: 0;
+     }
+   }
+
+   .notification {
+     position: fixed;
+     bottom: 20px;
+     left: 50%;
+     transform: translateX(-50%);
+     background-color: #4CAF50;
+     color: white;
+     padding: 10px 20px;
+     border-radius: 5px;
+     display: none;
+   }
+ }
+
+ @media (min-width: 768px) {
+  .slot {
+    top: 0;
+    left: 0;
+    transform: (-63px) translateY(-22px);
+    width: 490px;
+  }
+ }
+
+ @media (max-width: 768px) {
+
+   .love {
+     display: none;
+   }
+
+   .love i {
+     display: none;
+   }
+
+   html {
+     font-size: 90.5%;
+   }
+
+   .nav-link {
+     display: block;
+     padding: 0.9rem 1rem;
+   }
+
+   .simply-countdown>.simply-section {
+     width: 60px;
+     height: 60px;
+     padding: 10px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     float: left;
+     margin: 3px;
+     background: #f5f1aa;
+     border-radius: 50%;
+     box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .24)
+   }
+
+   .simply-countdown>.simply-section .simply-amount,
+   .simply-countdown>.simply-section .simply-word {
+     display: block;
+     text-align: center;
+     font-size: 0.6rem;
+   }
+
+   .simply-countdown>.simply-section .simply-amount {
+     display: block;
+     text-align: center;
+     font-size: 0.8rem;
+     font-weight: 800;
+   }
+
+
+   .card-name {
+     font-weight: 700;
+     text-align: right;
+     font-size: 14px;
+   }
+
+   .chip {
+     margin-top: 10px;
+     width: 40px;
+     height: 35px;
+   }
+
+   .chip img {
+     width: 40px;
+     height: 35px;
+   }
+
+   .card-no {
+     letter-spacing: .456rem;
+     margin-top: 10px;
+     font-family: 'DS-Digital', sans-serif;
+     font-weight: 300;
+     font-size: 12px;
+   }
+
+   .expire-data {
+     display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+   }
+
+   .expire-date {
+     margin-top: 6px;
+   }
+
+   .date-label {
+     font-size: 8px;
+   }
+
+   .card-type {
+     margin-top: 4px;
+     width: 60px;
+     height: 30px;
+   }
+
+   .card-type img {
+     width: 60px;
+     height: 30px;
+   }
+
+   .date {
+     font-size: 15px;
+   }
+
+   .account-name {
+     font-size: 15px;
+   }
+
+   .clipboard-button {
+     font-size: 8px;
+     background: linear-gradient(#29c236, #1f7a1c, #135f19);
+     color: white;
+     border: none;
+     border-radius: 50px;
+     cursor: pointer;
+     outline: none;
+     position: relative;
+     overflow: hidden;
+     transition: background-color 0.3s;
+   }
+
+   .clipboard-button1 {
+     font-size: 8px;
+     background: linear-gradient(#297dc2, #1c427a, #13435f);
+     color: white;
+     border: none;
+     border-radius: 50px;
+     cursor: pointer;
+     outline: none;
+     position: relative;
+     overflow: hidden;
+     transition: background-color 0.3s;
+   }
+
+   .ripple {
+     position: absolute;
+     background: rgba(255, 255, 255, 0.7);
+     border-radius: 50%;
+     transform: scale(0);
+     animation: rippleEffect 0.7s linear;
+   }
+
+   @keyframes rippleEffect {
+     to {
+       transform: scale(4);
+       opacity: 0;
+     }
+   }
+
+   .notification {
+     position: fixed;
+     bottom: 20px;
+     left: 50%;
+     transform: translateX(-50%);
+     background-color: #4CAF50;
+     color: white;
+     padding: 10px 20px;
+     border-radius: 5px;
+     display: none;
+   }
+
+   .navbar-green .navbar-nav .nav-link .fonts {
+     margin-top: 5px;
+     font-size: 10px;
+   }
+
+ }
+ 
+
+ /* End credit card design */
