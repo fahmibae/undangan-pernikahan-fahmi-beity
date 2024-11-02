@@ -870,7 +870,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const urlParams = new URLSearchParams(window.location.search);
-            const nama = urlParams.get('n');
+            const nama = urlParams.get('n') ? urlParams.get('n').replace(/-/g, ' ') : '';
             const pronoun = urlParams.get('p');
             const namaContainers = document.querySelectorAll('.display-5 span');
             const namaInput = document.getElementById('nama'); 
