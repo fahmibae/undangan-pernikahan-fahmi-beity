@@ -945,7 +945,8 @@
     </script>
 
     <script>
-    document.getElementById('commentForm').addEventListener('submit', function (event) {
+    // Fungsi untuk mengirim komentar
+    document.getElementById('commentForm').addEventListener('submit', function(event) {
         event.preventDefault();
 
         const name = document.getElementById('commentName').value;
@@ -954,7 +955,7 @@
         const payload = {
             fields: {
                 name: name,
-                body: comment,  // Memperbaiki variabel 'body'
+                body: comment,
             }
         };
 
@@ -994,6 +995,10 @@
                 const commentsList = document.getElementById('comments-list');
                 commentsList.innerHTML = ''; // Kosongkan daftar komentar
 
+                if (data.length === 0) {
+                    commentsList.innerHTML = '<p>Belum ada komentar.</p>';
+                }
+
                 data.forEach(comment => {
                     const commentBox = document.createElement('div');
                     commentBox.classList.add('comment-box');
@@ -1015,7 +1020,7 @@
 
     // Memuat komentar saat halaman pertama kali dibuka
     loadComments();
-</script>
+    </script>
 
 
 </body>
