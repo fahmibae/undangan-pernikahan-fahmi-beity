@@ -8,7 +8,6 @@ fields:
     type: textarea
     required: true
 
-folder: "comments" 
-
-fileExtension: "md" 
+folder: "comments"  
+fileExtension: "md"  
 
