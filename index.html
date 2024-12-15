@@ -639,45 +639,7 @@
                             </form>
                         </div>
                     </div>
-                    <div class="section-title position-relative text-center" data-aos="fade-up" data-aos-duration="2000"
-                        data-aos-delay="300">
-                        <i class="far fa-heart" style="color: #f5f1aa;" data-aos="fade-up" data-aos-duration="2000"
-                            data-aos-delay="300"></i>
-                    </div>
-                    <div class="col-lg-8">
-                        <h1 class="font-secondary text-center display-4 text-white" data-aos="fade-up"
-                            data-aos-duration="2000" data-aos-delay="200">Tinggalkan Komentar:</h1>
-                        <div class="container comment-section">
-                            <!-- Formulir Komentar -->
-                            <div class="comment-form">
-                                <form id="commentForm">
-                                    <div class="mb-3">
-                                        <input type="text" class="form-control" id="name" name="name"
-                                            placeholder="Masukkan nama" required style="border-radius: 10px;"
-                                            data-aos="fade-up" data-aos-duration="2000" data-aos-delay="100">
-                                    </div>
-                                    <div class="mb-3">
-                                        <textarea class="form-control" id="comment" name="comment" rows="3"
-                                            data-aos="fade-up" data-aos-duration="2000" data-aos-delay="200"
-                                            placeholder="Tulis komentar Anda..." required
-                                            style="border-radius: 10px;"></textarea>
-                                    </div>
-                                    <div data-aos="fade-up" data-aos-duration="2000" data-aos-delay="300">
-                                        <button class="btn btn-secondary w-100 font-weight-bold py-2 px-5 btn-send" type="submit"
-                                            style="border-radius: 10px;">Kirim</button>
-                                        <button class="btn btn-secondary w-100 font-weight-bold py-2 px-5 btn-loading d-none" type="button" disabled>
-                                          <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
-                                          <span role="status">Loading...</span>
-                                        </button>
-                                    </div>
-                                        
-                                </form>
-                            </div>
-                            <div id="commentsContainer"></div>
-                        </div>
-                    </div>
                 </div>
-
                 <div class="section-title position-relative text-center mt-5" data-aos="fade-up"
                     data-aos-duration="2000" data-aos-delay="300">
                     <i class="far fa-heart" style="color: #f5f1aa;" data-aos="fade-up" data-aos-duration="2000"
@@ -934,7 +896,6 @@
             const pronoun = urlParams.get('p');
             const namaContainers = document.querySelectorAll('.display-5 span');
             const namaInput = document.getElementById('nama');
-            const CommentName = document.getElementById('comment');
 
             if (nama && namaContainers.length > 0) {
                 namaContainers.forEach(namaContainer => {
@@ -943,83 +904,10 @@
             }
 
             if (nama && namaInput && CommentName) {
-                namaInput.value = nama;
-                CommentName.value = nama;
+                namaInput.value = nama;           
             }
         });
     </script>
-
-    <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbz6huaoS4E4W7FFGmQSI9lPY5A_B8iPO-qdKDw8f-9YOp7ypgeSC8rRrvkIuoY6UmJYOA/exec'
-        const form = document.forms['commentForm']
-
-        const btnSend = document.querySelector('.btn-send');
-        const btnLoading = document.querySelector('.btn-loading');
-    
-        form.addEventListener('submit', e => {
-        e.preventDefault()
-        btnLoading.classList.toggle('d-none');
-        btnSend.classList.toggle('d-none');
-        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-            .then(response => {
-                btnLoading.classList.toggle('d-none');
-                btnSend.classList.toggle('d-none');
-                console.log('Success!', response)
-            })
-            .catch(error => console.error('Error!', error.message))
-        })
-    </script>
-
-    <script>
-        // Fungsi untuk mengambil komentar dari Google Apps Script
-        function fetchComments() {
-            google.script.run.withSuccessHandler(displayComments).getComments();
-        }
-
-        // Fungsi untuk menampilkan komentar dalam bentuk kartu (card)
-        function displayComments(comments) {
-            const container = document.getElementById('commentsContainer');
-            container.innerHTML = ''; // Mengosongkan kontainer sebelum menambahkan komentar
-
-            // Loop melalui komentar dan tambahkan ke dalam kontainer
-            comments.forEach(function(comment) {
-                const card = document.createElement('div');
-                card.classList.add('card', 'mb-3', 'comment-card');
-                
-                const cardBody = document.createElement('div');
-                cardBody.classList.add('card-body');
-                
-                // Menambahkan nama pengirim
-                const nameElement = document.createElement('h5');
-                nameElement.classList.add('card-title');
-                nameElement.textContent = comment.name;
-                cardBody.appendChild(nameElement);
-
-                // Menambahkan isi komentar
-                const commentElement = document.createElement('p');
-                commentElement.classList.add('card-text');
-                commentElement.textContent = comment.comment;
-                cardBody.appendChild(commentElement);
-
-                // Menambahkan waktu komentar
-                const timeElement = document.createElement('p');
-                timeElement.classList.add('card-text');
-                timeElement.innerHTML = `<small class="text-muted">Di terbitkan pada ${new Date(comment.timestamp).toLocaleString()}</small>`;
-                cardBody.appendChild(timeElement);
-
-                // Menambahkan cardBody ke dalam card
-                card.appendChild(cardBody);
-
-                // Menambahkan card ke dalam kontainer
-                container.appendChild(card);
-            });
-        }
-
-        // Memanggil fungsi fetchComments saat halaman dimuat
-        window.onload = fetchComments;
-    </script>
-
-
 
 </body>
 
