@@ -663,9 +663,14 @@
                                             style="border-radius: 10px;"></textarea>
                                     </div>
                                     <div data-aos="fade-up" data-aos-duration="2000" data-aos-delay="300">
-                                        <button class="btn btn-secondary w-100 font-weight-bold py-2 px-5" type="submit"
+                                        <button class="btn btn-secondary w-100 font-weight-bold py-2 px-5 btn-send" type="submit"
                                             style="border-radius: 10px;">Kirim</button>
+                                        <button class="btn btn-secondary w-100 font-weight-bold py-2 px-5 btn-loading d-none" type="button" disabled>
+                                          <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                                          <span role="status">Loading...</span>
+                                        </button>
                                     </div>
+                                        
                                 </form>
                             </div>
                             <div id="comments" class="mt-4">
@@ -959,11 +964,20 @@
     <script>
         const scriptURL = 'https://script.google.com/macros/s/AKfycbz6huaoS4E4W7FFGmQSI9lPY5A_B8iPO-qdKDw8f-9YOp7ypgeSC8rRrvkIuoY6UmJYOA/exec'
         const form = document.forms['commentForm']
+
+        const btnSend = document.querySelector('.btn-send');
+        const btnLoading = document.querySelector('.btn-loading');
     
         form.addEventListener('submit', e => {
         e.preventDefault()
+        btnLoading.classList.toggle('d-none');
+        btnSend.classList.toggle('d-none');
         fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-            .then(response => console.log('Success!', response))
+            .then(response => {
+                btnLoading.classList.toggle('d-none');
+                btnSend.classList.toggle('d-none');
+                console.log('Success!', response)
+            })
             .catch(error => console.error('Error!', error.message))
         })
     </script>
