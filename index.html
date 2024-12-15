@@ -650,15 +650,15 @@
                         <div class="container comment-section">
                             <!-- Formulir Komentar -->
                             <div class="comment-form">
-                                <form id="commentForm">
+                                <form id="commentForm" method="POST" action="https://staticman.net/v3/entry/github/fahmibae/undangan-pernikahan-fahmi-beity/main/_data/comments.yml">
                                     <div class="mb-3">
-                                        <input type="text" class="form-control" id="commentName"
+                                        <input type="text" class="form-control" id="name" name="name"
                                             placeholder="Masukkan nama" required style="border-radius: 10px;"
                                             data-aos="fade-up" data-aos-duration="2000" data-aos-delay="100">
                                     </div>
                                     <div class="mb-3">
-                                        <textarea class="form-control" id="commentText" rows="3" data-aos="fade-up"
-                                            data-aos-duration="2000" data-aos-delay="200"
+                                        <textarea class="form-control" id="comment" name="comment" rows="3"
+                                            data-aos="fade-up" data-aos-duration="2000" data-aos-delay="200"
                                             placeholder="Tulis komentar Anda..." required
                                             style="border-radius: 10px;"></textarea>
                                     </div>
@@ -668,7 +668,19 @@
                                     </div>
                                 </form>
                             </div>
-                            <div id="comments-list"></div>
+                            <div id="comments" class="mt-4">
+                                {% for comment in site.data.comments %}
+                                {% if comment.path == "posts/my-first-post.md" and comment.approved == true %}
+                                <div class="card mb-3">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ comment.name }}</h5>
+                                        <p class="card-text">{{ comment.comment }}</p>
+                                        <p class="card-text"><small class="text-muted">Di terbitkan pada
+                                                {{ comment.date | date: "%B %d, %Y" }}</small></p>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -929,7 +941,7 @@
             const pronoun = urlParams.get('p');
             const namaContainers = document.querySelectorAll('.display-5 span');
             const namaInput = document.getElementById('nama');
-            const CommentName = document.getElementById('commentName');
+            const CommentName = document.getElementById('comment');
 
             if (nama && namaContainers.length > 0) {
                 namaContainers.forEach(namaContainer => {
@@ -944,83 +956,6 @@
         });
     </script>
 
-    <script>
-    // Fungsi untuk mengirim komentar
-    document.getElementById('commentForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-
-        const name = document.getElementById('commentName').value;
-        const comment = document.getElementById('commentText').value;
-
-        const payload = {
-            fields: {
-                name: name,
-                body: comment,
-            }
-        };
-
-        // Kirim data ke Staticman API
-        fetch('https://api.staticman.net/v2/entry/fahmibae/undangan-pernikahan-fahmi-beity/main/comments', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(payload)
-        })
-        .then(response => {
-            if (!response.ok) {
-                return response.json().then(errorData => {
-                    throw new Error(errorData.errors || 'Error tidak terduga');
-                });
-            }
-            return response.json();
-        })
-        .then(data => {
-            alert('Komentar berhasil dikirim!');
-            document.getElementById('commentName').value = '';
-            document.getElementById('commentText').value = '';
-            loadComments();
-        })
-        .catch(err => {
-            console.error('Error:', err);
-            alert('Terjadi kesalahan dalam mengirim komentar: ' + err.message);
-        });
-    });
-
-    // Fungsi untuk memuat komentar dari repositori GitHub menggunakan Staticman
-    function loadComments() {
-        fetch('https://api.staticman.net/v2/entry/fahmibae/undangan-pernikahan-fahmi-beity/main/comments')
-            .then(response => response.json())
-            .then(data => {
-                const commentsList = document.getElementById('comments-list');
-                commentsList.innerHTML = ''; // Kosongkan daftar komentar
-
-                if (data.length === 0) {
-                    commentsList.innerHTML = '<p>Belum ada komentar.</p>';
-                }
-
-                data.forEach(comment => {
-                    const commentBox = document.createElement('div');
-                    commentBox.classList.add('comment-box');
-
-                    commentBox.innerHTML = `
-                        <div class="comment-header">
-                            ${comment.fields.name} <span class="comment-time">- ${new Date(comment.created_at).toLocaleString()}</span>
-                        </div>
-                        <div class="comment-content">${comment.fields.body}</div>
-                    `;
-                    commentsList.appendChild(commentBox);
-                });
-            })
-            .catch(err => {
-                console.error('Error:', err);
-                alert('Terjadi kesalahan saat memuat komentar.');
-            });
-    }
-
-    // Memuat komentar saat halaman pertama kali dibuka
-    loadComments();
-    </script>
 
 
 </body>

@@ -1,0 +1,19 @@
+staticman:
+  api_url: "https://api.staticman.net/v3/entry/github/fahmibae/undangan-pernikahan-fahmi-beity/main/_data/comments.yml" # Ganti dengan URL API Staticman Anda
+  branch: "main"
+  endpoint: "/v3/entry/github/fahmibae/undangan-pernikahan-fahmi-beity/main/_data/comments.yml"
+  fields:
+    - name: "name"
+      label: "Name"
+      type: "text"
+      placeholder: "Your name"
+      required: true
+    - name: "comment"
+      label: "Comment"
+      type: "textarea"
+      placeholder: "Your comment"
+      required: true
+    - name: "path"
+      value: "/posts/my-first-post.md"
+    - name: "permalink"
+      value: "https://fahmibae.github.io/undangan-pernikahan-fahmi-beity/posts/my-first-post"
