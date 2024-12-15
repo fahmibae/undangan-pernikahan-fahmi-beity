@@ -959,7 +959,7 @@
             };
 
             // Kirim data ke Staticman API (gantilah URL dengan endpoint Staticman Anda)
-            fetch('https://api.staticman.dev/v2/entry/fahmibae/undangan-pernikahan-fahmi-beity/main/comments', {
+            fetch('https://api.staticman.net/v2/entry/fahmibae/undangan-pernikahan-fahmi-beity/main/comments', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -985,7 +985,7 @@
 
         // Fungsi untuk memuat komentar dari repositori GitHub menggunakan Staticman
         function loadComments() {
-            fetch('https://api.staticman.dev/v2/entry/fahmibae/undangan-pernikahan-fahmi-beity/main/comments')
+            fetch('https://api.staticman.net/v2/entry/fahmibae/undangan-pernikahan-fahmi-beity/main/comments')
                 .then(response => response.json())
                 .then(data => {
                     const commentsList = document.getElementById('comments-list');
