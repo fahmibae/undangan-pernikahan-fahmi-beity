@@ -778,6 +778,7 @@
     <script id="dsq-count-scr" src="//wedding-fahmi-beity.disqus.com/count.js" async></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
@@ -944,7 +945,8 @@
     </script>
 
     <script>
-    document.getElementById('commentForm').addEventListener('submit', function (event) {
+    // Fungsi untuk mengirim komentar
+    document.getElementById('commentForm').addEventListener('submit', function(event) {
         event.preventDefault();
 
         const name = document.getElementById('commentName').value;
@@ -953,7 +955,7 @@
         const payload = {
             fields: {
                 name: name,
-                body: comment,  // Memperbaiki variabel 'body'
+                body: comment,
             }
         };
 
@@ -993,6 +995,10 @@
                 const commentsList = document.getElementById('comments-list');
                 commentsList.innerHTML = ''; // Kosongkan daftar komentar
 
+                if (data.length === 0) {
+                    commentsList.innerHTML = '<p>Belum ada komentar.</p>';
+                }
+
                 data.forEach(comment => {
                     const commentBox = document.createElement('div');
                     commentBox.classList.add('comment-box');
@@ -1014,7 +1020,7 @@
 
     // Memuat komentar saat halaman pertama kali dibuka
     loadComments();
-</script>
+    </script>
 
 
 </body>

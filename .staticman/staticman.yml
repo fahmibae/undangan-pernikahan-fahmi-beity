@@ -1,13 +1,5 @@
-fields:
-  - name: name
-    label: 'Nama'
-    type: string
-    required: true
-  - name: body
-    label: 'Komentar'
-    type: textarea
-    required: true
-
-folder: "comments"  
-fileExtension: "md"  
+branch: main  
+folder: comments  
+fileExtension: md 
+commitMessage: "Add new comment"  
 

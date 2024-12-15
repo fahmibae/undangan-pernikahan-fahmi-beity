@@ -8,7 +8,10 @@ fields:
     type: textarea
     required: true
 
-folder: "comments" 
+folder: "comments"  
+fileExtension: "md"  
 
-fileExtension: "md" 
-
+on:
+  pull_request:
+    paths:
+      - "comments/**"  
