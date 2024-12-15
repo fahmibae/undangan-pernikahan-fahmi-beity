@@ -8,6 +8,10 @@
    background-color: #708839b7 !important;
  }
 
+ .comment-card {
+   margin-bottom: 20px;
+  }
+
  .btn-green-soft:hover {
    background-color: #7088397e !important;
  }
