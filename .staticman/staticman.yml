@@ -1,0 +1,14 @@
+fields:
+  - name: name
+    label: 'Nama'
+    type: string
+    required: true
+  - name: body
+    label: 'Komentar'
+    type: textarea
+    required: true
+
+folder: "comments" 
+
+fileExtension: "md" 
+

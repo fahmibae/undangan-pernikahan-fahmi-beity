@@ -1,0 +1,27 @@
+name: Staticman
+
+on:
+  pull_request:
+    paths:
+      - "comments/**"
+
+jobs:
+  staticman:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+
+      - name: Install dependencies
+        run: |
+          npm install
+
+      - name: Run Staticman
+        run: |
+          npx staticman generate --config .staticman/staticman.yml --branch main --folder comments

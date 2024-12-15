@@ -4,47 +4,63 @@
    font-style: normal;
  }
 
+ .btn-green-soft {
+   background-color: #708839b7 !important;
+ }
+
+ .btn-green-soft:hover {
+   background-color: #7088397e !important;
+ }
+
+ img.object-fit-cover {
+   object-fit: cover;
+   /* Pastikan gambar menutupi kontainer */
+   width: 100%;
+   height: 100%;
+ }
+
  /* Flower corners */
-.flower-corner {
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  background-image: url('img/flower.png');
-  background-size: cover;
-  opacity: 0;
-  animation: flowerFadeUp 2s ease-in-out forwards;
-}
+ .flower-corner {
+   width: 50px;
+   height: 50px;
+   position: absolute;
+   background-image: url('img/flower.png');
+   background-size: cover;
+   opacity: 0;
+   animation: flowerFadeUp 2s ease-in-out forwards;
+ }
 
-.top-left {
-  top: 20px;
-  left: 20px;
-}
+ .top-left {
+   top: 20px;
+   left: 20px;
+ }
 
-.top-right {
-  top: 20px;
-  right: 20px;
-}
+ .top-right {
+   top: 20px;
+   right: 20px;
+ }
 
-.bottom-left {
-  bottom: 20px;
-  left: 20px;
-}
+ .bottom-left {
+   bottom: 20px;
+   left: 20px;
+ }
 
-.bottom-right {
-  bottom: 20px;
-  right: 20px;
-}
+ .bottom-right {
+   bottom: 20px;
+   right: 20px;
+ }
 
-@keyframes flowerFadeUp {
-  0% {
-      transform: translateY(20px);
-      opacity: 0;
-  }
-  100% {
-      transform: translateY(0);
-      opacity: 1;
-  }
-}
+ @keyframes flowerFadeUp {
+   0% {
+     transform: translateY(20px);
+     opacity: 0;
+   }
+
+   100% {
+     transform: translateY(0);
+     opacity: 1;
+   }
+ }
 
  .arabic {
    font-family: "Noto Naskh Arabic", serif;
@@ -78,9 +94,9 @@
  .navbar-green .navbar-nav .active>.nav-link,
  .navbar-green .navbar-nav .nav-link.show,
  .navbar-green .navbar-nav .nav-link.active {
-  color: #fff;
-  font-weight: 600;
-  background-color: #3f5835d1;
+   color: #fff;
+   font-weight: 600;
+   background-color: #3f5835d1;
  }
 
  .navbar-green .navbar-nav .nav-link .fonts {
@@ -145,6 +161,61 @@
    background-size: cover;
  }
 
+ .quote-icon-left,
+ .quote-icon-right {
+   color: #ffffffcb;
+   line-height: 0;
+ }
+
+ .quote-icon-left {
+   display: inline-block;
+   top: -10px;
+   position: relative;
+ }
+
+ .comment-section {
+   margin-top: 30px;
+ }
+
+ .comment-box {
+   border-radius: 10px;
+   border: 1px solid #ddd;
+   padding: 10px;
+   margin-bottom: 10px;
+   background-color: #f8f9fa;
+ }
+
+ .comment-header {
+   font-weight: bold;
+   margin-bottom: 5px;
+ }
+
+ .comment-time {
+   font-size: 0.85rem;
+   color: #6c757d;
+ }
+
+ .comment-content {
+   font-size: 1rem;
+ }
+
+ .comment-form {
+   margin-top: 20px;
+ }
+
+ .quote-icon-right {
+   display: inline-block;
+   right: -5px;
+   position: relative;
+   top: -10px;
+   transform: scale(-1, -1);
+ }
+
+ .bg-hadist {
+   background: linear-gradient(#51623e, #51623eb0, #51623e), url(../img/gift.jpg), no-repeat center;
+   background-size: cover;
+ }
+
  .text-green {
    color: rgba(76, 228, 46, 0.5) !important;
  }
@@ -192,6 +263,8 @@
    text-align: right;
    font-size: 20px;
  }
+
+
 
  .chip {
    margin-top: 10px;
@@ -309,18 +382,24 @@
  }
 
  @media (max-width: 576px) {
-  .slot {
-    position: fixed; /* Bisa juga gunakan 'fixed' jika objek harus tetap di viewport */
-    top: 23%; /* Tempatkan objek di 50% dari atas container */
-    bottom: 12%;
-    left: 50%; /* Tempatkan objek di 50% dari kiri container */
-    width: 345px; /* Lebar objek tetap */
-    transform: translate(-50%, -50%); /* Pindahkan objek agar pusatnya berada di tengah */
-  
-  }
+   .slot {
+     position: fixed;
+     top: 23%;
+     bottom: 20%;
+     left: 49%;
+     width: 476px;
+     transform: translate(-50%, -50%);
+     z-index: 1;
+   }
+
+   /* Pindahkan objek agar pusatnya berada di tengah */
  }
 
  @media (max-width: 576px) {
+   .col-10 {
+     flex: 0 0 100%;
+     max-width: 100%;
+   }
 
    .love {
      display: none;
@@ -343,7 +422,7 @@
      justify-content: center;
      float: left;
      margin: 3px;
-     background: #f5f1aa;
+     background: #ffffff;
      border-radius: 50%;
      box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .24)
    }
@@ -497,13 +576,14 @@
      left: 0;
      transform: translateX(-54px) translateY(-20px);
      width: 475px;
+     z-index: 1;
    }
 
    .love {
      display: flex;
      border-radius: 50%;
      position: absolute;
-     left: 92%;
+     left: 92.7%;
      transform: translateX(-45%) translateY(100%);
    }
 
@@ -640,12 +720,12 @@
  }
 
  @media (min-width: 768px) {
-  .slot {
-    top: 0;
-    left: 0;
-    transform: (-63px) translateY(-22px);
-    width: 490px;
-  }
+   .slot {
+     top: -7px;
+     left: 21px;
+     transform: (-63px) translateY(-22px);
+     width: 590px;
+   }
  }
 
  @media (max-width: 768px) {
@@ -676,7 +756,7 @@
      justify-content: center;
      float: left;
      margin: 3px;
-     background: #f5f1aa;
+     background: #ffffff;
      border-radius: 50%;
      box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .24)
    }
@@ -813,6 +893,6 @@
    }
 
  }
- 
+
 
  /* End credit card design */
