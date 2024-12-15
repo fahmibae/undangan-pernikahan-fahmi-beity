@@ -3,7 +3,7 @@ name: Staticman
 on:
   pull_request:
     paths:
-      - "comments/**"
+      - "comments/**"  # Menunggu perubahan di folder comments
 
 jobs:
   staticman:
@@ -18,10 +18,10 @@ jobs:
         with:
           node-version: "16"
 
-      - name: Install dependencies
+      - name: Install Staticman
         run: |
-          npm install
+          npm install -g staticman
 
       - name: Run Staticman
         run: |
-          npx staticman generate --config .staticman/staticman.yml --branch main --folder comments
+          staticman generate --config .staticman/staticman.yml --branch main --folder comments
