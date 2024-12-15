@@ -673,19 +673,7 @@
                                         
                                 </form>
                             </div>
-                            <div id="comments" class="mt-4">
-                                {% for comment in site.data.comments %}
-                                {% if comment.path == "posts/my-first-post.md" and comment.approved == true %}
-                                <div class="card mb-3">
-                                    <div class="card-body">
-                                        <h5 class="card-title">{{ comment.name }}</h5>
-                                        <p class="card-text">{{ comment.comment }}</p>
-                                        <p class="card-text"><small class="text-muted">Di terbitkan pada
-                                                {{ comment.date | date: "%B %d, %Y" }}</small></p>
-                                    </div>
-                                </div>
-                                {% endfor %}
-                            </div>
+                            <div id="commentsContainer"></div>
                         </div>
                     </div>
                 </div>
@@ -980,6 +968,55 @@
             })
             .catch(error => console.error('Error!', error.message))
         })
+    </script>
+
+    <script>
+        // Fungsi untuk mengambil komentar dari Google Apps Script
+        function fetchComments() {
+            google.script.run.withSuccessHandler(displayComments).getComments();
+        }
+
+        // Fungsi untuk menampilkan komentar dalam bentuk kartu (card)
+        function displayComments(comments) {
+            const container = document.getElementById('commentsContainer');
+            container.innerHTML = ''; // Mengosongkan kontainer sebelum menambahkan komentar
+
+            // Loop melalui komentar dan tambahkan ke dalam kontainer
+            comments.forEach(function(comment) {
+                const card = document.createElement('div');
+                card.classList.add('card', 'mb-3', 'comment-card');
+                
+                const cardBody = document.createElement('div');
+                cardBody.classList.add('card-body');
+                
+                // Menambahkan nama pengirim
+                const nameElement = document.createElement('h5');
+                nameElement.classList.add('card-title');
+                nameElement.textContent = comment.name;
+                cardBody.appendChild(nameElement);
+
+                // Menambahkan isi komentar
+                const commentElement = document.createElement('p');
+                commentElement.classList.add('card-text');
+                commentElement.textContent = comment.comment;
+                cardBody.appendChild(commentElement);
+
+                // Menambahkan waktu komentar
+                const timeElement = document.createElement('p');
+                timeElement.classList.add('card-text');
+                timeElement.innerHTML = `<small class="text-muted">Di terbitkan pada ${new Date(comment.timestamp).toLocaleString()}</small>`;
+                cardBody.appendChild(timeElement);
+
+                // Menambahkan cardBody ke dalam card
+                card.appendChild(cardBody);
+
+                // Menambahkan card ke dalam kontainer
+                container.appendChild(card);
+            });
+        }
+
+        // Memanggil fungsi fetchComments saat halaman dimuat
+        window.onload = fetchComments;
     </script>
 
 
