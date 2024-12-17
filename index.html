@@ -650,7 +650,7 @@
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-lg-8 mb-5">
-                        <div class="alert alert-success d-flex align-items-center d-none" role="alert" id="success-message">
+                        <div class="alert alert-success d-flex align-items-center success-message d-none" role="alert">
                             <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Success:">
                                 <use xlink:href="#check-circle-fill"/>
                             </svg>
@@ -658,7 +658,7 @@
                                 Pesan Berhasil Terkirim
                             </div>
                         </div>
-                        <div class="alert alert-danger d-flex align-items-center d-none" role="alert" id="error-message">
+                        <div class="alert alert-danger d-flex align-items-center error-message d-none" role="alert">
                             <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Error:">
                                 <use xlink:href="#exclamation-triangle-fill"/>
                             </svg>
@@ -939,61 +939,34 @@
     <script>
         window.addEventListener("load", function () {
             const form = document.getElementById('my-form');
-            const btnLoading = document.getElementById('btn-loading');
-            const btnKirim = document.getElementById('btn-kirim');
-            const successMessage = document.getElementById('success-message');
-            const errorMessage = document.getElementById('error-message');
-            
+            const btnLoading = document.querySelector('btn-loading');
+            const btnKirim = document.querySelector('btn-kirim');
+            const successMessage = document.querySelector('success-message');
+            const errorMessage = document.querySelector('error-message');
             form.addEventListener("submit", function (e) {
                 e.preventDefault();
                 const data = new FormData(form);
                 const action = e.target.action;
-                
                 btnLoading.classList.toggle('d-none');
                 btnKirim.classList.toggle('d-none');
-                
-                successMessage.classList.toggle('d-none');
-                errorMessage.classList.toggle('d-none');
-                
                 fetch(action, {
-                    method: 'POST',
-                    body: data,
-                })
-                .then(response => {
-                    if (response.ok) {
-                        // If successful, show success message
-                        successMessage.classList.toggle('d-block');
-                        
-                        // Hide success message after 5 seconds
+                        method: 'POST',
+                        body: data,
+                    })
+                    .then((response) => {
+                        btnLoading.classList.toggle('d-none');
+                        btnKirim.classList.toggle('d-none');
+                        successMessage.classList.toggle('d-none');
                         setTimeout(function() {
                             successMessage.classList.toggle('d-none');
-                        }, 5000);  // 5 seconds timeout
-                    } else {
-                        // If there's an error, show error message
-                        errorMessage.classList.toggle('d-block');
-                        
-                        // Hide error message after 5 seconds
+                        }, 5000);
+                    })
+                    .catch((error) => {
+                        errorMessage.classList.toggle('d-none');
                         setTimeout(function() {
                             errorMessage.classList.toggle('d-none');
-                        }, 5000);  // 5 seconds timeout
-                    }
-                })
-                .catch((error) => {
-                    // If there's a network or other error, show error message
-                   errorMessage.classList.toggle('d-block');
-                    
-                    // Hide error message after 5 seconds
-                    setTimeout(function() {
-                        errorMessage.classList.toggle('d-none');
-                    }, 5000);  // 5 seconds timeout
-                    
-                    console.error('Error:', error);
-                })
-                .finally(() => {
-                    // Reset button visibility after request is done
-                    btnLoading.classList.toggle('d-none');
-                    btnKirim.classList.toggle('d-none');
-                });
+                        }, 5000);
+                    })
             });
         });
     </script>
