@@ -650,27 +650,10 @@
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-lg-8 mb-5">
-                        <div class="alert alert-success d-flex align-items-center success-message d-none" role="alert">
-                            <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Success:">
-                                <use xlink:href="#check-circle-fill"/>
-                            </svg>
-                            <div>
-                                Pesan Berhasil Terkirim
-                            </div>
-                        </div>
-                        <div class="alert alert-danger d-flex align-items-center error-message d-none" role="alert">
-                            <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Error:">
-                                <use xlink:href="#exclamation-triangle-fill"/>
-                            </svg>
-                            <div>
-                                Pesan Gagal Terkirim. Silakan coba lagi.
-                            </div>
-                        </div>
                         <div class="text-center">
                             <form method="POST"
                                 action="https://script.google.com/macros/s/AKfycbwZ-kDDN7kuVd5Qtvo4H_sEb4m4-0-ho81gSz-CdRa4LM8jvZL8i7jmmrG0l7dQN802gw/exec"
                                 id="my-form">
-                                
                                 <div class="form-row">
                                     <div class="form-group col-sm-6" data-aos="fade-up" data-aos-duration="2000"
                                         data-aos-delay="200">
@@ -700,7 +683,7 @@
                                         style="border-radius: 10px;">Simpan</button>
                                     <button class="btn btn-secondary w-100 font-weight-bold py-2 px-5 btn-loading d-none" type="button" disabled>
                                       <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
-                                      <span role="status">Loading...</span>
+                                      <span role="status">Proses...</span>
                                     </button>
                                 </div>
                             </form>
@@ -939,10 +922,8 @@
     <script>
         window.addEventListener("load", function () {
             const form = document.getElementById('my-form');
-            const btnLoading = document.querySelector('btn-loading');
-            const btnKirim = document.querySelector('btn-kirim');
-            const successMessage = document.querySelector('success-message');
-            const errorMessage = document.querySelector('error-message');
+            const btnLoading = document.querySelector('.btn-loading');
+            const btnKirim = document.querySelector('.btn-kirim');
             form.addEventListener("submit", function (e) {
                 e.preventDefault();
                 const data = new FormData(form);
@@ -953,19 +934,10 @@
                         method: 'POST',
                         body: data,
                     })
-                    .then((response) => {
+                    .then(() => {
                         btnLoading.classList.toggle('d-none');
                         btnKirim.classList.toggle('d-none');
-                        successMessage.classList.toggle('d-none');
-                        setTimeout(function() {
-                            successMessage.classList.toggle('d-none');
-                        }, 5000);
-                    })
-                    .catch((error) => {
-                        errorMessage.classList.toggle('d-none');
-                        setTimeout(function() {
-                            errorMessage.classList.toggle('d-none');
-                        }, 5000);
+                        alert('Terimakasih, data sudah terkirim');
                     })
             });
         });
