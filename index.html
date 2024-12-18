@@ -959,6 +959,23 @@
       const errorAlert = document.querySelector('.error-alert');
       form.addEventListener('submit', e => {
         e.preventDefault()
+        let isValid = true;
+          formData.forEach((value, key) => {
+            if (!value.trim()) { 
+              isValid = false;
+              const input = form.querySelector(`[name="${key}"]`);
+              input.classList.add('error'); 
+            } else {
+              const input = form.querySelector(`[name="${key}"]`);
+              input.classList.remove('error'); 
+            }
+          });
+
+          if (!isValid) {
+            errorAlert.textContent = 'Silahkan isi datanya secara lengkap'; 
+            errorAlert.classList.remove('d-none');
+            return; 
+          }
         btnLoading.classList.toggle('d-none');
         btnKirim.classList.toggle('d-none');
         fetch(scriptURL, { method: 'POST', body: new FormData(form)})
