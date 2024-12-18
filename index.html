@@ -966,10 +966,12 @@
               btnLoading.classList.toggle('d-none');
               btnKirim.classList.toggle('d-none');
               successAlert.classList.toggle('d-none');
-              console.log('Success!', response)
+              form.reset();
+              console.log('Success!', response);
           })
           .catch(error => {
               errorAlert.classList.toggle('d-none');
+              form.reset();
               console.error('Error!', error.message)
           })
       })
