@@ -650,10 +650,16 @@
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-lg-8 mb-5">
+                        <div class="alert alert-success alert-dismissible fade success-alert show d-none" role="alert">
+                          <strong>Terimakasih, pesan anda sudah berhasil terkirim.
+                          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        <div class="alert alert-danger alert-dismissible error-alert fade show d-none" role="alert">
+                          <strong>Mohon maaf, pesan anda tidak berhasil terkirim.
+                          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
                         <div class="text-center">
-                            <form method="POST"
-                                action="https://script.google.com/macros/s/AKfycbwZ-kDDN7kuVd5Qtvo4H_sEb4m4-0-ho81gSz-CdRa4LM8jvZL8i7jmmrG0l7dQN802gw/exec"
-                                id="my-form">
+                            <form name="my-form">
                                 <div class="form-row">
                                     <div class="form-group col-sm-6" data-aos="fade-up" data-aos-duration="2000"
                                         data-aos-delay="200">
@@ -942,6 +948,31 @@
                     .catch((error) => console.error('Error!', error.message))
             });
         });
+    </script>
+
+    <script>
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbwZ-kDDN7kuVd5Qtvo4H_sEb4m4-0-ho81gSz-CdRa4LM8jvZL8i7jmmrG0l7dQN802gw/exec'
+      const form = document.forms['my-form']
+      const btnLoading = document.querySelector('.btn-loading');
+      const btnKirim = document.querySelector('.btn-kirim');
+      const successAlert = document.querySelector('.success-alert');
+      const errorAlert = document.querySelector('.error-alert');
+      form.addEventListener('submit', e => {
+        e.preventDefault()
+        btnLoading.classList.toggle('d-none');
+        btnKirim.classList.toggle('d-none');
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+          .then(response => {
+              btnLoading.classList.toggle('d-none');
+              btnKirim.classList.toggle('d-none');
+              successAlert.classList.toggle('d-none');
+              console.log('Success!', response)
+          })
+          .catch(error => {
+              errorAlert.classList.toggle('d-none');
+              console.error('Error!', error.message)
+          })
+      })
     </script>
 
     <script>
