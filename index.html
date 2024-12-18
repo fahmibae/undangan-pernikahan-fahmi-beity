@@ -937,8 +937,9 @@
                     .then((response) => {
                         btnLoading.classList.toggle('d-none');
                         btnKirim.classList.toggle('d-none');
-                        alert('Terimakasih, data sudah terkirim');
+                        console.log('Success!', response);
                     })
+                    .catch((error) => console.error('Error!', error.message))
             });
         });
     </script>
