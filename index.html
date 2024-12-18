@@ -934,7 +934,7 @@
                         method: 'POST',
                         body: data,
                     })
-                    .then(() => {
+                    .then((response) => {
                         btnLoading.classList.toggle('d-none');
                         btnKirim.classList.toggle('d-none');
                         alert('Terimakasih, data sudah terkirim');
